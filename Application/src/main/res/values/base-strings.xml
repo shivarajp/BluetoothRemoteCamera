@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BluetoothCamea</string>
+    <string name="intro_message">Welcome to BluetoothCamera</string>
+</resources>
