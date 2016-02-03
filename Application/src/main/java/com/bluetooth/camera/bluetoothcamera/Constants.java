@@ -14,6 +14,7 @@ public interface Constants {
     public static final int START_CAMERA_SERVICE = 6;
     public static final int STOP_CAMERA = 7;
     public static final int TAKE_PICTURE = 8;
+    public static final int CAMERA_PREVIEW = 9;
 
     
     public static final String DEVICE_NAME = "device_name";

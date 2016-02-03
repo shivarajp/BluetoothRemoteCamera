@@ -2,13 +2,6 @@
 <items version="2" >
 
     <item
-        jar="E:\sdk\samples\android-23\connectivity\bluetooth\BluetoothCamera\Application\build\intermediates\exploded-aar\com.android.support\gridlayout-v7\21.0.2\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="9742ced04aafd9ac97dd2c66c1aa0e32d2ae7e54">
-        <dex dex="E:\sdk\samples\android-23\connectivity\bluetooth\BluetoothCamera\Application\build\intermediates\pre-dexed\debug\classes-9fab50134f0a42b25272dc64fbe0f99701be5251.jar" />
-    </item>
-    <item
         jar="E:\sdk\samples\android-23\connectivity\bluetooth\BluetoothCamera\Application\build\intermediates\exploded-aar\com.android.support\cardview-v7\21.0.2\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
@@ -28,6 +21,20 @@
         revision="22.0.1"
         sha1="99373741f99a0556ee293c41e8faa1ca3ae8a4e6">
         <dex dex="E:\sdk\samples\android-23\connectivity\bluetooth\BluetoothCamera\Application\build\intermediates\pre-dexed\debug\support-annotations-21.0.2-57708e7491fa61fb4b3836926f60c92a994b969a.jar" />
+    </item>
+    <item
+        jar="E:\sdk\samples\android-23\connectivity\bluetooth\BluetoothCamera\Application\build\intermediates\exploded-aar\com.android.support\gridlayout-v7\21.0.2\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9742ced04aafd9ac97dd2c66c1aa0e32d2ae7e54">
+        <dex dex="E:\sdk\samples\android-23\connectivity\bluetooth\BluetoothCamera\Application\build\intermediates\pre-dexed\debug\classes-9fab50134f0a42b25272dc64fbe0f99701be5251.jar" />
+    </item>
+    <item
+        jar="C:\Users\Shivam\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="E:\sdk\samples\android-23\connectivity\bluetooth\BluetoothCamera\Application\build\intermediates\pre-dexed\debug\picasso-2.5.2-63a79a9fcf180e6da692b8790f3bc547b4ba0fbf.jar" />
     </item>
     <item
         jar="E:\sdk\samples\android-23\connectivity\bluetooth\BluetoothCamera\Application\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.2\jars\classes.jar"

@@ -19,10 +19,10 @@ import java.io.OutputStream;
 import java.util.UUID;
 
 
-public class BluetoothCameraManager {
+public class BluetoothCameraManager implements IActionListner{
     
     private static final String TAG = "rolf";
-
+    int len = 0;
     private static final String NAME_SECURE = "BluetoothCameraSecure";
     private static final String NAME_INSECURE = "BluetoothCameraInsecure";
 
@@ -226,7 +226,12 @@ public class BluetoothCameraManager {
         BluetoothCameraManager.this.start();
     }
 
-    
+    @Override
+    public void onStartAction() {
+
+    }
+
+
     private class AcceptThread extends Thread {
         
         private final BluetoothServerSocket mmServerSocket;
@@ -318,8 +323,6 @@ public class BluetoothCameraManager {
             BluetoothSocket tmp = null;
             mSocketType = secure ? "Secure" : "Insecure";
 
-            
-            
             try {
                 if (secure) {
                     tmp = device.createRfcommSocketToServiceRecord(
@@ -337,14 +340,8 @@ public class BluetoothCameraManager {
         public void run() {
             Log.i(TAG, "BEGIN mConnectThread SocketType:" + mSocketType);
             setName("ConnectThread" + mSocketType);
-
-            
             mAdapter.cancelDiscovery();
-
-            
             try {
-                
-                
                 mmSocket.connect();
             } catch (IOException e) {
                 
@@ -388,7 +385,6 @@ public class BluetoothCameraManager {
             InputStream tmpIn = null;
             OutputStream tmpOut = null;
 
-            
             try {
                 tmpIn = socket.getInputStream();
                 tmpOut = socket.getOutputStream();
@@ -402,28 +398,32 @@ public class BluetoothCameraManager {
 
         public void run() {
             Log.d(TAG, "BEGIN mConnectedThread");
-            byte[] buffer = new byte[1024];
+            byte[] buffer;
+            if(len!=0){
+                buffer = new byte[len];
+            }else {
+                buffer = new byte[2048];
+            }
+            //buffer = new byte[35344];
             int bytes;
-
+            /*mHandler.obtainMessage(Constants.START_CAMERA_SERVICE,0, -1,0)
+                    .sendToTarget();*/
             
             while (true) {
                 try {
-                    
+                    //Reading data written by othre device
+                    //So this stream of data need to be displayed on surface view.
+
                     bytes = mmInStream.read(buffer);
-                    mHandler.obtainMessage(Constants.START_CAMERA_SERVICE, bytes, -1, buffer)
+
+                    mHandler.obtainMessage(Constants.CAMERA_PREVIEW, bytes, -1, buffer)
                             .sendToTarget();
 
-
-                    
-                    
                     Log.d(TAG, "Reading");
-
-                    
 
                 } catch (IOException e) {
                     Log.e(TAG, "disconnected", e);
                     connectionLost();
-                    
                     BluetoothCameraManager.this.start();
                     break;
                 }
@@ -433,8 +433,8 @@ public class BluetoothCameraManager {
         
         public void write(byte[] buffer) {
             try {
+                len = buffer.length;
                 mmOutStream.write(buffer);
-                
                 
             } catch (IOException e) {
                 Log.e(TAG, "Exception during write", e);

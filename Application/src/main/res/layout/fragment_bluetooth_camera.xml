@@ -10,15 +10,31 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
+
+
         <SurfaceView
-            android:id="@+id/surfaceview"
+            android:id="@+id/surfaceview2"
             android:layout_width="150dp"
+            android:visibility="gone"
             android:layout_height="150dp" />
 
-        <ImageView
-            android:id="@+id/previewImage"
-            android:layout_width="50dp"
-            android:layout_height="50dp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <SurfaceView
+                android:id="@+id/surfaceview"
+                android:layout_width="150dp"
+                android:layout_height="150dp" />
+
+            <ImageView
+                android:id="@+id/previewImage"
+                android:layout_width="150dp"
+                android:layout_height="150dp" />
+
+
+        </LinearLayout>
 
 
         <Button
